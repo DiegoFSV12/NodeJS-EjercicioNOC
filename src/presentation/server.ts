@@ -9,7 +9,10 @@ export class Server{
             ()=>{
                 const date = new Date();
                 console.log('Mensaje cada 5 segundos',date);
-                new CheckService().execute('https://www.google.com');
+                new CheckService(
+                    () => console.log('success'),
+                    (error)=>console.log(error)
+                ).execute('http://localhost:3000/profile');
             }
         );
         
