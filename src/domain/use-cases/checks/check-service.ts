@@ -26,4 +26,23 @@ export class CheckService implements CheckServiceUseCase{
             return false;
         }
     }
+
+    /*public async getPosts(url:string){
+        try {
+            const postsResponse = await fetch(url);
+            if (!postsResponse.ok) throw new Error(`Error fetching posts: ${postsResponse.status}`);
+            // Convierte la respuesta a JSON
+            const postsData = await postsResponse.json();
+            var postSearch = '';
+            postsData.forEach((post:any) => {
+                if(post.id==1){
+                    postSearch = post.id;
+                }
+            });
+            // Procesa y muestra los posts
+            console.log("Posts:", postSearch);
+        } catch (error) {
+            
+        }
+    }*/
 }
