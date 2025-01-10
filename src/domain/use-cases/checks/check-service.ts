@@ -1,48 +1,50 @@
-interface CheckServiceUseCase{
-    execute(url:string):Promise<boolean>;
+import { LogEntity, LogSeverityLevel } from '../../entities/log.entity';
+import { LogRepository } from '../../repository/log.repository';
+
+interface CheckServiceUseCase {
+  execute( url: string ):Promise<boolean>;
 }
 
-type SuccessCallback = ()=>void;
-type ErrorCallback = (error:string)=>void;
 
-export class CheckService implements CheckServiceUseCase{
-    constructor(private readonly successCallback:SuccessCallback,
-        private readonly errorCallback:ErrorCallback){
-        
-    }
-    
-    public async execute(url: string): Promise<boolean> {
-        try {
-            const req = await fetch(url);
-            if(!req.ok){
-                throw new Error(`Error on check service ${url}`);
-            }
-            this.successCallback();
-            console.log(`${url} - Servicio levantado`);
-            return true;
-        } catch (error) {
-            this.errorCallback(`${error}`);
-            console.log(error);
-            return false;
-        }
+type SuccessCallback = (() => void) | undefined;
+type ErrorCallback = (( error: string ) => void) | undefined;
+
+
+
+
+export class CheckService implements CheckServiceUseCase {
+
+  constructor(
+    private readonly logRepository: LogRepository,
+    private readonly successCallback: SuccessCallback,
+    private readonly errorCallback: ErrorCallback
+  ) {}
+
+
+  public async execute( url: string ): Promise<boolean> {
+
+    try {
+      const req = await fetch( url );
+      if ( !req.ok ) {
+        throw new Error( `Error on check service ${ url }` );
+      }
+
+      const log = new LogEntity(`Service ${ url } working`, LogSeverityLevel.low );
+      this.logRepository.saveLog( log );
+      this.successCallback && this.successCallback();
+
+      return true;
+    } catch (error) {
+      const errorMessage = `${url} is not ok. ${ error }`;
+      const log = new LogEntity( errorMessage , LogSeverityLevel.high );
+      this.logRepository.saveLog(log);
+      
+      this.errorCallback && this.errorCallback( errorMessage );
+
+      return false;
     }
 
-    /*public async getPosts(url:string){
-        try {
-            const postsResponse = await fetch(url);
-            if (!postsResponse.ok) throw new Error(`Error fetching posts: ${postsResponse.status}`);
-            // Convierte la respuesta a JSON
-            const postsData = await postsResponse.json();
-            var postSearch = '';
-            postsData.forEach((post:any) => {
-                if(post.id==1){
-                    postSearch = post.id;
-                }
-            });
-            // Procesa y muestra los posts
-            console.log("Posts:", postSearch);
-        } catch (error) {
-            
-        }
-    }*/
+  }
+
 }
+

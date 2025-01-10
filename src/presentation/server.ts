@@ -1,21 +1,40 @@
 import { CheckService } from '../domain/use-cases/checks/check-service';
-import {CronService} from './cron/cron-service';
+import { FileSystemDatasource } from '../infrastructure/datasources/file-system.datasource';
+import { LogRepositoryImpl } from '../infrastructure/repositories/log.repository.impl';
+import { CronService } from './cron/cron-service';
 
-export class Server{
-    public static start(){
+
+const fileSystemLogRepository = new LogRepositoryImpl(
+  new FileSystemDatasource(),
+);
+
+
+
+export class Server {
+
+  public static start() {
+
+    console.log( 'Server started...' );
+
+    
+    CronService.createJob(
+      '*/5 * * * * *',
+      () => {
+        const url = 'https://google.com';
+        new CheckService(
+          fileSystemLogRepository,
+          () => console.log( `${ url } is ok` ),
+          ( error ) => console.log( error ),
+        ).execute( url );
+        // new CheckService().execute( 'http://localhost:3000' );
         
-        console.log('Server started...');
-        CronService.createJob(
-            '*/5 * * * * *',
-            ()=>{
-                const date = new Date();
-                console.log('Mensaje cada 5 segundos',date);
-                new CheckService(
-                    () => console.log('success'),
-                    (error)=>console.log(error)
-                ).execute('http://localhost:3000/profile');
-            }
-        );
-        
-    }
+      }
+    );
+
+
+  }
+
+
 }
+
+
