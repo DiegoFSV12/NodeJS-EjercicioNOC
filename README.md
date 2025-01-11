@@ -1,4 +1,13 @@
 # NodeJS-EjercicioNOC
 En esta seccion se definiran tareas que se ejecutaran periodicamente.
 
-Va de la mano con el siguiente proyecto:
+Es importante crear un archivo .env el cual tenga los siguientes datos:
+
+PORT=
+SERVICE=
+EMAIL=
+KEY=
+
+Envio de correos:
+Configuramos una contraseña de aplicación aquí, debemos tener activada la autenticación de 2 pasos: https://myaccount.google.com/u/1/apppasswords , guardamos la key en el archivo .env y su configuración.
+Instalamos nodemailer con npm i nodemailer. (si usamos typescript adicionalmente instalamos npm i --save-dev @types/nodemailer)
