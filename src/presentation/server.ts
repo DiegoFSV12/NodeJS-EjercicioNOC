@@ -22,12 +22,9 @@ export class Server {
     console.log(envs.SERVICE, envs.EMAIL, envs.KEY, envs.PORT);
 
     const emailService = new EmailService();
-    emailService.sendEmail({
-      to: 'cooldiego70@gmail.com',
-      subject: 'PRUEBA ORRAI',
-      htmlBody: `<h1>ORRAI CAUSA</h1>
-      <p>loremorrai p causa añañay gogogo</p>`
-    });
+    emailService.sendEmailWithFileSystemLogs([
+      ''
+    ]);
 
     // CronService.createJob(
     //   '*/5 * * * * *',
