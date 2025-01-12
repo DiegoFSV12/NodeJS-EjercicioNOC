@@ -18,13 +18,13 @@ export class Server {
 
     console.log( 'Server started...' );
 
-    //Mandar Email
-    console.log(envs.SERVICE, envs.EMAIL, envs.KEY, envs.PORT);
+    // //Mandar Email
+    // console.log(envs.SERVICE, envs.EMAIL, envs.KEY, envs.PORT);
 
-    const emailService = new EmailService();
-    emailService.sendEmailWithFileSystemLogs([
-      ''
-    ]);
+    // const emailService = new EmailService(fileSystemLogRepository);
+    // emailService.sendEmailWithFileSystemLogs([
+    //   'cooldiego70@gmail.com','diegodvasqz7@gmail.com'
+    // ]);
 
     // CronService.createJob(
     //   '*/5 * * * * *',

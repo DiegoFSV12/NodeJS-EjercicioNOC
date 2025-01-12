@@ -1,3 +1,5 @@
 {"message":"Service https://google.com working","level":"low","createdAt":"2025-01-11T19:41:05.631Z","origin":"check-service.ts"}
 {"message":"Service https://google.com working","level":"low","createdAt":"2025-01-11T19:41:10.445Z","origin":"check-service.ts"}
 {"message":"Service https://google.com working","level":"low","createdAt":"2025-01-11T19:41:15.413Z","origin":"check-service.ts"}
+{"message":"Email Sent","level":"low","createdAt":"2025-01-12T19:14:22.004Z","origin":"email-service.ts"}
+{"message":"Email Sent","level":"low","createdAt":"2025-01-12T19:15:28.375Z","origin":"email-service.ts"}
