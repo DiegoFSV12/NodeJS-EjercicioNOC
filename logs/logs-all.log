@@ -4,3 +4,4 @@
 {"message":"Email Sent","level":"low","createdAt":"2025-01-12T19:14:22.004Z","origin":"email-service.ts"}
 {"message":"Email Sent","level":"low","createdAt":"2025-01-12T19:15:28.375Z","origin":"email-service.ts"}
 {"message":"Log Email sent","level":"low","createdAt":"2025-01-12T19:38:24.468Z","origin":"send-email-logs.ts"}
+{"message":"Log Email sent","level":"low","createdAt":"2025-01-13T21:17:55.551Z","origin":"send-email-logs.ts"}
