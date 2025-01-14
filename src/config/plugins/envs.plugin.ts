@@ -8,9 +8,9 @@ export const envs = {
   EMAIL: env.get('EMAIL').required().asEmailString(),
   KEY: env.get('KEY').required().asString(),
   MONGO_URL: env.get('MONGO_URL').required().asString(),
-  MONGO_DB_NAME: env.get('MONGO_URL').required().asString(),
-  MONGO_USER: env.get('MONGO_URL').required().asString(),
-  MONGO_PASS: env.get('MONGO_URL').required().asString(),
+  MONGO_DB_NAME: env.get('MONGO_DB_NAME').required().asString(),
+  MONGO_USER: env.get('MONGO_USER').required().asString(),
+  MONGO_PASS: env.get('MONGO_PASS').required().asString(),
 }
 
 
