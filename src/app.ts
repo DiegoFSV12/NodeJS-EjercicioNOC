@@ -22,8 +22,8 @@ async function main(){//Espera a que se connecte al servidor
   // console.log(newLog)
   // //Server.start();
 
-  const logs = await LogModel.find();
-  console.log(logs[2].level);
+  // const logs = await LogModel.find();
+  // console.log(logs[2].level);
 }
 
 
