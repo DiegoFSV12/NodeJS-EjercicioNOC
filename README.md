@@ -14,8 +14,13 @@ MONGO_DB_NAME=
 MONGO_USER=
 MONGO_PASS=
 
+POSTGRES_URL= 
+POSTGRES_USER=
+POSTGRES_DB=
+POSTGRES_PASSWORD=
+
 Envio de correos:
 Configuramos una contraseña de aplicación aquí, debemos tener activada la autenticación de 2 pasos: https://myaccount.google.com/u/1/apppasswords , guardamos la key en el archivo .env y su configuración.
 Instalamos nodemailer con npm i nodemailer. (si usamos typescript adicionalmente instalamos npm i --save-dev @types/nodemailer)
 
-Usamos docker compose up para levantar docket y poder conectar la bd
+Usamos docker compose up para levantar docket y npm run dev para ejecutar el programa y poder conectarnos a la bd
