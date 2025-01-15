@@ -20,7 +20,7 @@ async function main(){//Espera a que se connecte al servidor
   // });
   // await newLog.save();
   // console.log(newLog)
-  // //Server.start();
+  Server.start();
 
   // const logs = await LogModel.find();
   // console.log(logs[2].level);
