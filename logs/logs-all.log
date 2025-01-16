@@ -44,3 +44,13 @@
 {"message":"Log Email sent","level":"low","createdAt":"2025-01-15T19:40:42.735Z","origin":"send-email-logs.ts"}
 {"message":"Log Email sent","level":"low","createdAt":"2025-01-15T19:40:58.751Z","origin":"send-email-logs.ts"}
 {"message":"Log Email sent","level":"low","createdAt":"2025-01-15T19:41:17.439Z","origin":"send-email-logs.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2025-01-16T20:56:35.518Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2025-01-16T20:56:40.427Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2025-01-16T20:56:45.428Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2025-01-16T20:56:50.405Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2025-01-16T20:56:55.408Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2025-01-16T20:57:00.425Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2025-01-16T20:57:05.414Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2025-01-16T20:57:10.429Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2025-01-16T20:57:15.429Z","origin":"check-service.ts"}
+{"message":"Service https://google.com working","level":"low","createdAt":"2025-01-16T20:57:20.423Z","origin":"check-service.ts"}

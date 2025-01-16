@@ -1,6 +1,7 @@
 import { envs } from '../config/plugins/envs.plugin';
 import { LogSeverityLevel } from '../domain/entities/log.entity';
 import { CheckService } from '../domain/use-cases/checks/check-service';
+import { CheckServiceMultiple } from '../domain/use-cases/checks/check-service-multiple';
 import { SendEmailLogs } from '../domain/use-cases/email/send-email-logs';
 import { FileSystemDatasource } from '../infrastructure/datasources/file-system.datasource';
 import { MongoLogDatasource } from '../infrastructure/datasources/mongo-log-datasource';
@@ -10,9 +11,13 @@ import { CronService } from './cron/cron-service';
 import { EmailService } from './email/email-service';
 
 
-const logRepository = new LogRepositoryImpl(
-  //new FileSystemDatasource(),
-  //new MongoLogDatasource,
+const fslogRepository = new LogRepositoryImpl(
+  new FileSystemDatasource()
+);
+const mongologRepository = new LogRepositoryImpl(
+  new MongoLogDatasource
+);
+const postgreslogRepository = new LogRepositoryImpl(
   new PostgresLogDatasource
 );
 
@@ -25,17 +30,17 @@ export class Server {
     console.log( 'Server started...' );
 
     //Mandar Email
-    const emailService = new EmailService();
-    new SendEmailLogs(emailService,logRepository).execute([
-      ''
-    ]);
+    // const emailService = new EmailService();
+    // new SendEmailLogs(emailService,logRepository).execute([
+    //   ''
+    // ]);
 
     CronService.createJob(
       '*/5 * * * * *',
       () => {
         const url = 'https://google.com';
-        new CheckService(
-          logRepository,
+        new CheckServiceMultiple(
+          [fslogRepository,postgreslogRepository,mongologRepository],
           () => console.log( `${ url } is ok` ),
           ( error ) => console.log( error ),
         ).execute( url );
@@ -44,8 +49,8 @@ export class Server {
       }
     );
 
-    const logs =  await logRepository.getLogs(LogSeverityLevel.high);
-    console.log(logs);
+    //const logs =  await logRepository.getLogs(LogSeverityLevel.high);
+    //console.log(logs);
 
   }
 
