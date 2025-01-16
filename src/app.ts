@@ -25,13 +25,13 @@ async function main(){//Espera a que se connecte al servidor
 // console.log({newLog});
 
 //Lectura en PRISMA
-const prisma = new PrismaClient();
-const logs = await prisma.logModel.findMany({
-  where:{
-    level: 'MEDIUM'
-  }
-});
-console.log(logs);
+// const prisma = new PrismaClient();
+// const logs = await prisma.logModel.findMany({
+//   where:{
+//     level: 'MEDIUM'
+//   }
+// });
+// console.log(logs);
 
 
 
@@ -43,7 +43,7 @@ console.log(logs);
   // });
   // await newLog.save();
   // console.log(newLog)
-  //Server.start();
+  Server.start();
 
   // const logs = await LogModel.find();
   // console.log(logs[2].level);
