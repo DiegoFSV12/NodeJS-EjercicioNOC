@@ -21,6 +21,7 @@ export class PostgresLogDatasource implements LogDatasource{
                 origin: log.origin
             }
         });
+        console.log('Postgre log created ', newLog.id);
     }
     async getLogs(severityLevel: LogSeverityLevel): Promise<LogEntity[]> {
         //const securityLevel = this.securityLeveUpper(severityLevel);
